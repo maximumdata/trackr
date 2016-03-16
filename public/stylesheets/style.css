@@ -1,0 +1,19 @@
+#helpBlock {
+  display: none; }
+
+#usernameGroup .glyphicon {
+  display: none; }
+
+#usernameGroup.has-error #errorIcon {
+  display: block; }
+
+#usernameGroup.has-error #successIcon {
+  display: none; }
+
+#usernameGroup.has-success #errorIcon {
+  display: none; }
+
+#usernameGroup.has-success #successIcon {
+  display: block; }
+
+/*# sourceMappingURL=style.css.map */
