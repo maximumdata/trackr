@@ -5,18 +5,20 @@ body
 #helpBlock
   display: none
 
-#usernameGroup
+#usernameGroup, #passGroup
   .glyphicon
     display: none
 
-#usernameGroup.has-error
-  #errorIcon
-    display: block
-  #successIcon
-    display: none
+// #usernameGroup.has-error, #passGroup.has-error
+.has-error
+  .glyphicon-remove
+    display: block !important
+  .glyphicon-ok
+    display: none !important
 
-#usernameGroup.has-success
-  #errorIcon
-    display: none
-  #successIcon
-    display: block
+// #usernameGroup.has-success, #passGroup.has-success
+.has-success
+  .glyphicon-remove
+    display: none !important
+  .glyphicon-ok
+    display: block !important

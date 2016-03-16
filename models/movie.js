@@ -1,6 +1,7 @@
 var mongoose = require('../config/database');
 
 var Movie = mongoose.Schema({
+  owner: String,
   title: String,
   rating: Number,
   review: String,

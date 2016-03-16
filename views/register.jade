@@ -6,66 +6,73 @@ block content
       h1 Register
       form(role='form', action='/register', method='post')
         .form-group.has-feedback#usernameGroup
-          label(for='username' class='control-label')
+          label(for='username', class='control-label')
             | Email Address
-          input(type='text', name='username', placeholder='Enter email address', autofocus, id='username', class='form-control', aria-describedby="helpBlock")
-          span.glyphicon.glyphicon-ok.form-control-feedback#successIcon(aria-hidden='true')
-          span.glyphicon.glyphicon-remove.form-control-feedback#errorIcon(aria-hidden='true')
-          span#helpBlock.help-block
-        .form-group
-          label(for='password')
+          input(type='text', name='username', placeholder='Enter email address', autofocus, id='username', class='form-control', aria-describedby="helpBlockUser")
+          span.glyphicon.glyphicon-ok.form-control-feedback#successIconUser(aria-hidden='true')
+          span.glyphicon.glyphicon-remove.form-control-feedback#errorIconUser(aria-hidden='true')
+          span#helpBlockUser.help-block
+        .form-group.has-feedback#passGroup
+          label(for='password', class='control-label')
             | Password
-          input(type='password', name='password', placeholder='Password', class='form-control')
-        button(type='submit', class="btn btn-default") Register
+          input(type='password', name='password', placeholder='Password', class='form-control', id='password', aria-describedby="helpBlockPass")
+          span.glyphicon.glyphicon-ok.form-control-feedback#successIconPass(aria-hidden='true')
+          span.glyphicon.glyphicon-remove.form-control-feedback#errorIconPass(aria-hidden='true')
+          span#helpBlockPass.help-block
+        button(type='submit', class="btn btn-default", id="subBtn", disabled=true) Register
   
   script.
     $(document).ready(function() {
       $('#username').on('keyup', function() {
         var val = $(this).val();
         if(val) {
-          $.get('/register/check/user/'+$(this).val(), function(data) {
+          $.get('/register/check/user/'+val, function(data) {
             if(!data.success) {
               $('#usernameGroup').addClass('has-error').removeClass('has-success');
-              $('#helpBlock').text(data.reason).slideDown('fast');
+              $('#helpBlockUser').text(data.reason).slideDown('fast');
             } else {
               $('#usernameGroup').addClass('has-success').removeClass('has-error');
-              $('#helpBlock').text('').slideUp('fast');
+              $('#helpBlockUser').text('').slideUp('fast');
             }
+            
+            checkFields();
           });
         } else {
           $('#usernameGroup').removeClass('has-error has-success');
-          $('#helpBlock').text('').slideUp('fast');
+          $('#helpBlockUser').text('').slideUp('fast');
+        }
+      });
+      
+      $('#password').on('keyup', function() {
+        var passval = $(this).val();
+        if(passval) {
+          $.get('/register/check/pass/'+passval, function(data) {
+            
+            if(data.score < 3) {
+              var string = '';
+              for(var i = 0; i < data.feedback.suggestions.length; i++) {
+                string += data.feedback.suggestions[i] + ' '
+              }
+              $('#passGroup').addClass('has-error').removeClass('has-success');
+              $('#helpBlockPass').text(string).slideDown('fast');
+              
+            } else {
+              $('#passGroup').addClass('has-success').removeClass('has-error');
+              $('#helpBlockPass').text('').slideUp('fast');
+            }
+            
+            checkFields();
+          });
+        } else {
+          $('#passGroup').removeClass('has-error has-success');
+          $('#helpBlockPass').text('').slideUp('fast');
         }
       });
     });
-
-
-//-
-  var strength = {
-  		0: "Worst ☹",
-  		1: "Bad ☹",
-  		2: "Weak ☹",
-  		3: "Good ☺",
-  		4: "Strong ☻"
-  }
-
-  var password = document.getElementById('password');
-  var meter = document.getElementById('password-strength-meter');
-  var text = document.getElementById('password-strength-text');
-
-  password.addEventListener('input', function()
-  {
-      var val = password.value;
-      var result = zxcvbn(val);
-  	
-      // Update the password strength meter
-      meter.value = result.score;
-     
-      // Update the text indicator
-      if(val !== "") {
-          text.innerHTML = "Strength: " + "<strong>" + strength[result.score] + "</strong>" + "<span class='feedback'>" + result.feedback.warning + " " + result.feedback.suggestions + "</span"; 
-      }
-      else {
-          text.innerHTML = "";
-      }
-  });
+    
+    function checkFields() {
+      var userGroup = $('#usernameGroup'), passGroup = $('#passGroup'), btn = $('#subBtn');
+      if(userGroup.hasClass('has-success') && passGroup.hasClass('has-success')) {
+        btn.attr('disabled', false);
+      } else { btn.attr('disabled', true); }
+    }

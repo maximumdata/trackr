@@ -1,19 +1,19 @@
 #helpBlock {
   display: none; }
 
-#usernameGroup .glyphicon {
+#usernameGroup .glyphicon, #passGroup .glyphicon {
   display: none; }
 
-#usernameGroup.has-error #errorIcon {
-  display: block; }
+.has-error .glyphicon-remove {
+  display: block !important; }
 
-#usernameGroup.has-error #successIcon {
-  display: none; }
+.has-error .glyphicon-ok {
+  display: none !important; }
 
-#usernameGroup.has-success #errorIcon {
-  display: none; }
+.has-success .glyphicon-remove {
+  display: none !important; }
 
-#usernameGroup.has-success #successIcon {
-  display: block; }
+.has-success .glyphicon-ok {
+  display: block !important; }
 
 /*# sourceMappingURL=style.css.map */
