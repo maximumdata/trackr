@@ -3,7 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 var validator = require('validator');
 var zxcvbn = require('zxcvbn');
-var uuid = require('node-uuid');
+
 
 var Account = require('../models/account');
 
@@ -15,7 +15,7 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-  Account.register(new Account({ username: req.body.username, uuid: uuid.v1(), created: Date.now(), display: '' }), req.body.password, function(err, account) {
+  Account.register(new Account({ username: req.body.username, created: Date.now(), display: '' }), req.body.password, function(err, account) {
     if(err) {
       return res.status(500).send(err);
     }

@@ -6,7 +6,7 @@ var Account = mongoose.Schema({
   display: String,
   created: Date,
   password: String,
-  uuid: String
+  movies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }]
 });
 
 Account.plugin(passportLocalMongoose);

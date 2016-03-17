@@ -1,7 +1,7 @@
 var mongoose = require('../config/database');
 
 var Movie = mongoose.Schema({
-  owner: String,
+  _owner: { type: Number, ref: 'Account' },
   title: String,
   rating: Number,
   review: String,
