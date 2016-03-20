@@ -6,7 +6,7 @@ var Movie = mongoose.Schema({
     rating: Number,
     tags: [String],
     review: {
-      public: Boolean,
+      public: {type: Boolean, default: false},
       text: String,
       date: Date,
       rating: Number
