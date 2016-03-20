@@ -1,7 +1,13 @@
 var mongoose = require('../config/database');
 var passportLocalMongoose = require('passport-local-mongoose');
+var shortid = require('shortid');
 
 var Account = mongoose.Schema({
+  _id: {
+    type: String,
+    unique: true,
+    'default': shortid.generate
+  },
   username: String,
   display: String,
   created: Date,
