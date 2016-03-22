@@ -34,7 +34,7 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
 app.use(require('express-session')({
-  secret: 'keyboard cat',
+  secret: 'publicly viewable during dev',
   resave: false,
   saveUninitialized: false
 }));
