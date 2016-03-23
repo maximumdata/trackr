@@ -12,7 +12,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var register = require('./routes/register');
 var movies = require('./routes/movies');
-
+var omdb = require('./routes/omdb');
 
 
 var app = express();
@@ -46,6 +46,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/register', register);
 app.use('/movies', movies);
+app.use('/omdb', omdb);
 
 
 var Account = require('./models/account');
