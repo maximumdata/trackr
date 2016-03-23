@@ -21,9 +21,7 @@ router.get('/search/:title/:year', function(req, res) {
 router.get('/get/:id', function(req, res) {
   omdb.get(req.params.id, function(err, result) {
     if(err) { res.json({success: false, message: err}); }
-    else {
-      res.json(result);
-    }
+    else { res.json(result); }
   });
 });
 
