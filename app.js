@@ -14,7 +14,6 @@ var register = require('./routes/register');
 var movies = require('./routes/movies');
 var omdb = require('./routes/omdb');
 
-
 var app = express();
 
 // view engine setup
@@ -53,7 +52,6 @@ var Account = require('./models/account');
 passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
-
 
 
 // catch 404 and forward to error handler
