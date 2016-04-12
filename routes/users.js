@@ -11,4 +11,11 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/removeall', function(req, res) {
+  Account.find({ }).remove(function(err) {
+    if(err) { res.send(err); }
+    else { res.send('removed all accounts'); }
+  });
+});
+
 module.exports = router;

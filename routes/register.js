@@ -45,13 +45,4 @@ router.get('/check/pass/:password', function(req, res) {
   res.json(zxcvbn(password));
 });
 
-router.get('/removeall', function(req, res) {
-  Account.find({ }).remove(function(err) {
-    if(err) { res.send(err); }
-    else { res.send('ok'); }
-  });
-});
-
-
-
 module.exports = router;

@@ -44,4 +44,11 @@ router.get('/add', function(req, res) {
   }
 });
 
+router.get('/removeall', function(req, res) {
+  Movie.find({ }).remove(function(err) {
+    if(err) { res.send(err); }
+    else { res.send('removed all movies'); }
+  });
+});
+
 module.exports = router;
