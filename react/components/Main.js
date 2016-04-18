@@ -16,6 +16,16 @@ class MainLayout extends React.Component {
   }
 }
 
+class Home extends React.Component {
+  render() {
+    return (
+      <div className="home">
+        <h5>home</h5>
+      </div>
+    );
+  }
+}
+
 class SearchLayout extends React.Component {
   render() {
     return (

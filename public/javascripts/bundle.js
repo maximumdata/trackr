@@ -95,8 +95,35 @@
 	  return MainLayout;
 	}(_react2.default.Component);
 
-	var SearchLayout = function (_React$Component2) {
-	  _inherits(SearchLayout, _React$Component2);
+	var Home = function (_React$Component2) {
+	  _inherits(Home, _React$Component2);
+
+	  function Home() {
+	    _classCallCheck(this, Home);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Home).apply(this, arguments));
+	  }
+
+	  _createClass(Home, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'home' },
+	        _react2.default.createElement(
+	          'h5',
+	          null,
+	          'home'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Home;
+	}(_react2.default.Component);
+
+	var SearchLayout = function (_React$Component3) {
+	  _inherits(SearchLayout, _React$Component3);
 
 	  function SearchLayout() {
 	    _classCallCheck(this, SearchLayout);
@@ -124,8 +151,8 @@
 	  return SearchLayout;
 	}(_react2.default.Component);
 
-	var UserList = function (_React$Component3) {
-	  _inherits(UserList, _React$Component3);
+	var UserList = function (_React$Component4) {
+	  _inherits(UserList, _React$Component4);
 
 	  function UserList() {
 	    _classCallCheck(this, UserList);
@@ -161,8 +188,8 @@
 	  return UserList;
 	}(_react2.default.Component);
 
-	var WidgetList = function (_React$Component4) {
-	  _inherits(WidgetList, _React$Component4);
+	var WidgetList = function (_React$Component5) {
+	  _inherits(WidgetList, _React$Component5);
 
 	  function WidgetList() {
 	    _classCallCheck(this, WidgetList);
