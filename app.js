@@ -33,7 +33,7 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
 app.use(require('express-session')({
-  secret: 'publicly viewable during dev',
+  secret: process.env.TRACKRSECRET ? process.env.TRACKRSECRET : 'publicly viewable during dev',
   resave: false,
   saveUninitialized: false
 }));
