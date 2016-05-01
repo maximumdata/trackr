@@ -13,6 +13,7 @@ var users = require('./routes/users');
 var register = require('./routes/register');
 var movies = require('./routes/movies');
 var omdb = require('./routes/omdb');
+var api = require('./routes/api');
 
 var app = express();
 
@@ -46,7 +47,7 @@ app.use('/users', users);
 app.use('/register', register);
 app.use('/movies', movies);
 app.use('/omdb', omdb);
-
+app.use('/api', api);
 
 var Account = require('./models/account');
 passport.use(new LocalStrategy(Account.authenticate()));

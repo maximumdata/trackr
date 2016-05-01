@@ -5,12 +5,6 @@ var passport = require('passport');
 var Account = require('../models/account');
 var Movie = require('../models/movie');
 
-router.get('/', function(req, res) {
-  Movie.find({}, function(err, movies) {
-    if(err) { res.json(err); }
-    else { res.json(movies); }
-  });
-});
 
 router.get('/add', function(req, res) {
   if(!req.isAuthenticated()) { res.redirect('/login'); }
