@@ -18,7 +18,6 @@
     "debug": "~2.2.0",
     "express": "^4.14.0",
     "express-session": "^1.13.0",
-    "jade": "~1.11.0",
     "mongoose": "^4.4.7",
     "morgan": "~1.6.1",
     "node-sass-middleware": "0.8.0",
@@ -27,15 +26,16 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^4.0.0",
+    "pug": "^2.0.0-beta4",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-router": "^2.0.1",
     "serve-favicon": "~2.3.0",
     "shortid": "^2.2.4",
+    "snyk": "^1.18.0",
     "validator": "^5.1.0",
     "webpack": "^1.12.14",
-    "zxcvbn": "^4.2.0",
-    "snyk": "^1.18.0"
+    "zxcvbn": "^4.2.0"
   },
   "jshintConfig": {
     "passfail": false,
