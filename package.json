@@ -19,7 +19,7 @@
     "express": "^4.14.0",
     "express-session": "^1.13.0",
     "mongoose": "^4.4.7",
-    "morgan": "~1.8.2",
+    "morgan": "~1.9.1",
     "node-sass-middleware": "0.10.1",
     "node-uuid": "^1.4.7",
     "omdb": "^0.5.0",
